@@ -1,27 +1,20 @@
 #!/usr/bin/env python
-import getpass as gp
-from typing import Tuple
+import login
+import constants as const 
+from selenium import webdriver
 
-def get_credentials() -> Tuple[str, str]:
-    username = input('Username:')
-    try:
-        password = gp.getpass();
-        return username, password
-    except (gp.GetPassWarning, EOFError) as e:
-        raise e
-
-def login():
-    try:
-        username, password = get_credentials()
-        print(username)
-        print(password)
-    except Exception as e:
-        raise e
-
+def scrape():
+    pass
 
 def main():
     try:
-        login()
+        username, password = login.credentials()
+
+        driver = webdriver.Chrome()
+        login.login(username, password, driver)
+
+        while(True):
+            pass
     except Exception as e:
         raise e
 
