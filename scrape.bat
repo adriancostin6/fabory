@@ -1,5 +1,9 @@
 :: Scrape fabory.com/ro for products
 @echo off
 
-python -m pip install scraper\requirements.txt
+pushd "%~dp0"
+
+python -m pip install -r scraper\requirements.txt
 python scraper\scrape.py
+
+popd

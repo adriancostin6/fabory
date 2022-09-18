@@ -11,14 +11,17 @@ def get_credentials() -> Tuple[str, str]:
         raise e
 
 def login():
-    pass
-
-
-def main():
     try:
         username, password = get_credentials()
         print(username)
         print(password)
+    except Exception as e:
+        raise e
+
+
+def main():
+    try:
+        login()
     except Exception as e:
         raise e
 
